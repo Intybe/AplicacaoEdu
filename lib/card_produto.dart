@@ -17,6 +17,7 @@ class card_produto extends StatelessWidget {
         ),
       ),
       child: Card(
+      color:const Color.fromRGBO(249, 249, 249, 0.976),
       elevation: 3,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
