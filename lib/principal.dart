@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_edutico/filtro_idade.dart';
 import 'package:flutter_application_edutico/card_produto.dart';
 import 'package:flutter_application_edutico/produto.dart';
-import 'package:flutter_application_edutico/pesquisa.dart'; // Import da tela de pesquisa
+import 'package:flutter_application_edutico/pesquisa.dart'; 
 
 class HomeScreen extends StatelessWidget {
   final List<Produto> produtos = [

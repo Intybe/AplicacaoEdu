@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_edutico/detalhe_produto.dart';
 import 'package:flutter_application_edutico/produto.dart';
 
 class card_produto extends StatelessWidget {
@@ -8,7 +9,14 @@ class card_produto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Detalhe_produto(produto:produto,),
+        ),
+      ),
+      child: Card(
       elevation: 3,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
@@ -36,6 +44,7 @@ class card_produto extends StatelessWidget {
             ),
           ],
         ),
+      ),
       ),
     );
   }

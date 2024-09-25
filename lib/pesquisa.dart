@@ -66,8 +66,24 @@ class _PesquisaState extends State<Pesquisa> {
                 contentPadding: const EdgeInsets.symmetric(vertical: 10),
               ),
             ),
-            const SizedBox(height: 20),
-            produtosFiltrados.isEmpty && searchController.text.isNotEmpty
+            const SizedBox(height: 40),
+
+            // Exibe a mensagem "Resultados para 'termo de pesquisa'"
+            searchController.text.isNotEmpty //se a caixa de texto não estiver vazia, apresentar um texto concatenando a variavel que corresponde a pesquisa
+                ? Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Text(
+                      'Resultados para "${searchController.text}"',
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                  : const SizedBox(height: 20),
+
+
+            produtosFiltrados.isEmpty && searchController.text.isNotEmpty //se não houver produtos correspondentes a pesquisa e a caixa de texto da pesquisa não estiver vazia apresentar uma mensagem que o produto não foi encontrado
                 ? const Center(
                     child: Column(
                       children: [
@@ -80,17 +96,20 @@ class _PesquisaState extends State<Pesquisa> {
                       ],
                     ),
                   )
-                : produtosFiltrados.isEmpty && searchController.text.isEmpty
+
+
+                : produtosFiltrados.isEmpty && searchController.text.isEmpty //quando o usuario entra na tela de pesquisa e não digita nada 
                     ? Expanded(
                         child: Align(
-                          alignment: Alignment.bottomCenter, // Alinha a imagem ao rodapé
-                          child: Image.asset(
-                            'assets/catavento.png',
-                            width: 500, 
-                            height: 500,
+                            alignment: Alignment.bottomCenter,
+                            child: Image.asset(
+                              'assets/catavento.png',
+                              fit: BoxFit.cover,
+                              width: MediaQuery.of(context).size.width, // Largura da tela
+                            ),
                           ),
-                        ),
                       )
+                      
 
                     : Expanded(
                         child: GridView.builder(
