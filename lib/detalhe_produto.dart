@@ -22,15 +22,14 @@ class DetalheProduto extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical, // Rolagem horizontal
+        scrollDirection: Axis.vertical,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [ 
-              // Carrossel de Produto
+              // Carrossel das imagens
               SizedBox(
-                height: 200,
                 child: CarrosselProduto(produtos: produtos),
               ),
 
@@ -48,48 +47,57 @@ class DetalheProduto extends StatelessWidget {
               const SizedBox(height: 10),
               
               // Preço e Status de Estoque
-              Row(
-                children: [
-                  Column(
+              Card(
+                color: const Color.fromRGBO(249, 249, 249, 0.976),
+                elevation: 3,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'R\$ 700,00', // Preço anterior
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            produtos.preco, // Novo preço
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            ),
+                          ),
+                          const Text(
+                            'ou 10x R\$ 60,00', 
+                            style: TextStyle(fontSize: 14, color: Colors.grey),
+                          ),
+                        ],
+                      ),
                       const Text(
-                        'R\$ 700,00', // Preço anterior
+                        'Em estoque',
                         style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        produtos.preco, 
-                        style: const TextStyle(
-                          fontSize: 24,
+                          color: Colors.green,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                          fontSize: 16,
                         ),
-                      ),
-                      const Text(
-                        'ou 10x R\$ 60,00', 
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
                   ),
-                  const Spacer(),
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Colors.green[100],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Text(
-                      'Em estoque',
-                      style: TextStyle(color: Colors.green),
-                    ),
-                  ),
-                ],
+                ),
               ),
+
               const SizedBox(height: 20),
               
               // Descrição do Produto

@@ -49,10 +49,10 @@ class _CarrosselProdutoState extends State<CarrosselProduto> {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0), // Cantos arredondados
+                  borderRadius: BorderRadius.circular(20.0), 
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey[200], // Cor de fundo quando a imagem está carregando
+                      color: Colors.grey[200], 
                       boxShadow: const [
                         BoxShadow(
                           color: Colors.black12,
