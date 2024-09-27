@@ -13,7 +13,7 @@ class card_produto extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Detalhe_produto(produto:produto,),
+          builder: (context) => DetalheProduto(produtos:produto,),
         ),
       ),
       child: Card(
@@ -31,7 +31,7 @@ class card_produto extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(15), // Arredondando as bordas da imagem
               child: 
-            Image.asset(produto.img,width: 220,height: 220,fit: BoxFit.cover) // Ajusta a imagem para cobrir o espaço)
+            Image.asset(produto.img1,width: 220,height: 220,fit: BoxFit.cover) // Ajusta a imagem para cobrir o espaço)
             ),
             const SizedBox(height: 2, width: 5,),
             Text(

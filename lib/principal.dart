@@ -6,10 +6,10 @@ import 'package:flutter_application_edutico/pesquisa.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<Produto> produtos = [
-    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img: 'assets/prod1.jpeg', descri: ''),
-    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img: 'assets/prod1.jpeg', descri: ''),
-    Produto(nome: 'evelyn', preco: 'R\$ 40,00', img: 'assets/prod1.jpeg', descri: ''),
-    Produto(nome: 'leticia', preco: 'R\$ 50,00', img: 'assets/prod1.jpeg', descri: ''),
+    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg',descri: 'lakjhu'),
+    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'klhjhkjb'),
+    Produto(nome: 'evelyn', preco: 'R\$ 40,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'jhiuohnh'),
+    Produto(nome: 'leticia', preco: 'R\$ 50,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'hihoihnjn'),
   ];
 
   HomeScreen({super.key});
