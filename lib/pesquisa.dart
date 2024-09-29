@@ -79,6 +79,7 @@ class _PesquisaState extends State<Pesquisa> {
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'Glacial Indifference'
                       ),
                     ),
                   )
@@ -93,7 +94,10 @@ class _PesquisaState extends State<Pesquisa> {
                         SizedBox(height: 10),
                         Text(
                           'Nenhum produto encontrado.',
-                          style: TextStyle(fontSize: 18, color: Colors.red),
+                          style: TextStyle(
+                            fontSize: 18, 
+                            color: Colors.red,
+                            fontFamily: 'Glacial Indifference'),
                         ),
                       ],
                     ),

@@ -36,12 +36,18 @@ class card_produto extends StatelessWidget {
             const SizedBox(height: 2, width: 5,),
             Text(
               produto.nome, 
-              style: const TextStyle(fontWeight: FontWeight.bold, fontFamily: 'glacial'),
+              style: const TextStyle(
+                fontSize: 16, 
+                fontFamily: 'Glacial Indifference Bold'),
             ),
             const Spacer(),
             Text(
               produto.preco,
-              style: const TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF385BD2), fontSize: 18),
+              style: const TextStyle(
+                fontWeight: FontWeight.bold, 
+                color: Color(0xFF385BD2), 
+                fontSize: 18,
+                fontFamily: 'Glacial Indifference Bold'),
             ),
           ],
         ),

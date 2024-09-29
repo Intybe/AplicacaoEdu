@@ -50,21 +50,32 @@ class _CarrosselProdutoState extends State<CarrosselProduto> {
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20.0), 
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200], 
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 10,
-                          spreadRadius: 2,
+                  child: GestureDetector(
+                    onTap: () {
+                      // Navegar para a tela de visualização em tela cheia
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ImgCheia(imagem: images[index]),
                         ),
-                      ],
-                    ),
-                    child: Image.asset(
-                      images[index],
-                      fit: BoxFit.cover,
-                      width: double.infinity, // A imagem preenche toda a largura
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200], 
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 10,
+                            spreadRadius: 2,
+                          ),
+                        ],
+                      ),
+                      child: Image.asset(
+                        images[index],
+                        fit: BoxFit.cover,
+                        width: double.infinity, // A imagem preenche toda a largura
+                      ),
                     ),
                   ),
                 ),
@@ -74,7 +85,7 @@ class _CarrosselProdutoState extends State<CarrosselProduto> {
         ),
         const SizedBox(height: 10),
 
-        // Indicadores de página (os pontinhos)
+        //os pontinhos
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(images.length, (index) {
@@ -101,6 +112,32 @@ class _CarrosselProdutoState extends State<CarrosselProduto> {
           }),
         ),
       ],
+    );
+  }
+}
+
+
+// Classe que exibe a imagem em tela cheia
+class ImgCheia extends StatelessWidget {
+  final String imagem;
+
+  const ImgCheia({super.key, required this.imagem});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFFFFEF8),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black),
+      ),
+      body: Center(
+        child: Image.asset(
+          imagem,
+          fit: BoxFit.contain, 
+        ),
+      ),
     );
   }
 }

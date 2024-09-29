@@ -5,6 +5,10 @@ class Produto {
   String nome;
   String preco; 
   String descri;
+  int faixaEtaria;
+  String precoAnt;
+  String precoParc;
+  String estoque;
 
 
   Produto({
@@ -14,6 +18,10 @@ class Produto {
     required this.nome,
     required this.preco,
     required this.descri,
+    required this.faixaEtaria,
+    required this.precoAnt,
+    required this.precoParc,
+    required this.estoque,
   });
 
 }

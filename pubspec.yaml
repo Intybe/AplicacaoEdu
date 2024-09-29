@@ -27,7 +27,20 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+  
+  fonts:
+  - family: Glacial Indifference
+    fonts:
+    - asset: assets/fonts/glacial.otf
+  
+  - family: Glacial Indifference Bold
+    fonts:
+    - asset: assets/fonts/GlacialIndifference-Bold.otf
 
+  - family: Edutico
+    fonts:
+    - asset: assets/fonts/Edutico-Regular.otf
+  
   assets:
     - 'assets/logoEdu.png'
     - 'assets/logoNome.png'

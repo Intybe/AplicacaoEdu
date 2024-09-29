@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_edutico/filtro_idade.dart';
+import 'package:flutter_application_edutico/filtro_button.dart';
 import 'package:flutter_application_edutico/card_produto.dart';
 import 'package:flutter_application_edutico/produto.dart';
-import 'package:flutter_application_edutico/pesquisa.dart'; 
+import 'package:flutter_application_edutico/pesquisa.dart';
 
-class HomeScreen extends StatelessWidget {
-  final List<Produto> produtos = [
-    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg',descri: 'lakjhu'),
-    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'klhjhkjb'),
-    Produto(nome: 'evelyn', preco: 'R\$ 40,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'jhiuohnh'),
-    Produto(nome: 'leticia', preco: 'R\$ 50,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'hihoihnjn'),
+class HomeScreen extends StatefulWidget {
+  HomeScreen({super.key});
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<Produto> produtos = [
+    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'lakjhu', faixaEtaria: 1, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Em estoque'),
+    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'klhjhkjb', faixaEtaria: 3, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Indisponível'),
+    Produto(nome: 'evelyn', preco: 'R\$ 40,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'jhiuohnh', faixaEtaria: 6, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Em estoque'),
+    Produto(nome: 'leticia', preco: 'R\$ 50,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'hihoihnjn', faixaEtaria: 10, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Em estoque'),
+    Produto(nome: 'leticia', preco: 'R\$ 50,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'hihoihnjn', faixaEtaria: 12, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Em estoque'),
   ];
 
-  HomeScreen({super.key});
+  // Variável para armazenar a faixa etária selecionada
+  int? faixaEtariaSelecionada;
+
+  // Função para filtrar os produtos pela faixa etária
+  List<Produto> get produtosFiltrados {
+    if (faixaEtariaSelecionada == null) {
+      return produtos; // Se nenhuma faixa etária foi selecionada, exibe todos os produtos
+    }
+    return produtos.where((produto) => produto.faixaEtaria <= faixaEtariaSelecionada!).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +75,7 @@ class HomeScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
             const Divider(
-              thickness: 1,// Espessura da linha
+              thickness: 1, // Espessura da linha
               color: Colors.grey,
             ),
 
@@ -66,28 +83,54 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 20),
 
             // Filtros por idade
-            const SingleChildScrollView(
+            SingleChildScrollView(
               scrollDirection: Axis.horizontal, // Rolagem horizontal
               child: Row(
                 children: [
-                  IdadeFiltroButton(label: 'Até 2 anos'),
-                  SizedBox(width: 10), // Espaçamento entre os botões
-                  IdadeFiltroButtonAzul(label: '3+ anos'),
-                  SizedBox(width: 10),
-                  IdadeFiltroButton(label: '6+ anos'),
-                  SizedBox(width: 10),
-                  IdadeFiltroButtonAzul(label: '10+ anos'),
-                  SizedBox(width: 10),
-                  IdadeFiltroButton(label: '12+ anos'),
+                  IdadeFiltroButton(label: 'Até 2 anos', onPressed: () {
+                    setState(() {
+                      faixaEtariaSelecionada = 2;
+                    });
+                  }),
+                  const SizedBox(width: 10), // Espaçamento entre os botões
+                  IdadeFiltroButtonAzul(label: '3+ anos', onPressed: () {
+                    setState(() {
+                      faixaEtariaSelecionada = 3;
+                    });
+                  }),
+                  const SizedBox(width: 10),
+                  IdadeFiltroButton(label: '6+ anos', onPressed: () {
+                    setState(() {
+                      faixaEtariaSelecionada = 6;
+                    });
+                  }),
+                  const SizedBox(width: 10),
+                  IdadeFiltroButtonAzul(label: '10+ anos', onPressed: () {
+                    setState(() {
+                      faixaEtariaSelecionada = 10;
+                    });
+                  }),
+                  const SizedBox(width: 10),
+                  IdadeFiltroButton(label: '12+ anos', onPressed: () {
+                    setState(() {
+                      faixaEtariaSelecionada = 12;
+                    });
+                  }),
                 ],
               ),
             ),
+
             const SizedBox(height: 20),
             const Text(
-              'MAIS VENDIDOS',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF385BD2)),
+              'TODOS OS PRODUTOS',
+              style: TextStyle(
+                fontSize: 18, 
+                fontWeight: FontWeight.bold, 
+                color: Color(0xFF385BD2),
+                fontFamily: 'Edutico'),
             ),
             const SizedBox(height: 10),
+            
             Expanded(
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -96,9 +139,9 @@ class HomeScreen extends StatelessWidget {
                   mainAxisSpacing: 20,
                   childAspectRatio: 0.7,
                 ),
-                itemCount: produtos.length,
+                itemCount: produtosFiltrados.length,
                 itemBuilder: (context, index) {
-                  return card_produto(produto: produtos[index]);
+                  return card_produto(produto: produtosFiltrados[index]);
                 },
               ),
             ),

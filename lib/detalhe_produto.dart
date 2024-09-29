@@ -36,11 +36,12 @@ class DetalheProduto extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Nome do Produto
-              const Text(
-                'Kit Monta Monta Trem Estrela 20pcs', 
-                style: TextStyle(
+              Text(
+                produtos.nome, 
+                style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'Glacial Indifference Bold'
                 ),
               ),
 
@@ -62,11 +63,12 @@ class DetalheProduto extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'R\$ 700,00', // Preço anterior
-                            style: TextStyle(
+                          Text(
+                            produtos.precoAnt, // Preço anterior
+                            style: const TextStyle(
                               fontSize: 14,
                               color: Colors.grey,
+                              fontFamily: 'Glacial Indifference',
                               decoration: TextDecoration.lineThrough,
                             ),
                           ),
@@ -76,21 +78,26 @@ class DetalheProduto extends StatelessWidget {
                             style: const TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: Colors.blue,
+                              color: Color(0xFF385BD2),
+                              fontFamily: 'Glacial Indifference Bold'
                             ),
                           ),
-                          const Text(
-                            'ou 10x R\$ 60,00', 
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
+                          Text(
+                            'ou ${produtos.precoParc}', 
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              fontFamily: 'Glacial Indifference'),
                           ),
                         ],
                       ),
-                      const Text(
-                        'Em estoque',
-                        style: TextStyle(
+                      Text(
+                        produtos.estoque,
+                        style: const TextStyle(
                           color: Colors.green,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
+                          fontFamily: 'Glacial Indifference'
                         ),
                       ),
                     ],
@@ -101,9 +108,26 @@ class DetalheProduto extends StatelessWidget {
               const SizedBox(height: 20),
               
               // Descrição do Produto
-              const Text(
+              Card(
+                color: const Color.fromRGBO(249, 249, 249, 0.976),
+                elevation: 3,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+             const Text(
                 'DESCRIÇÃO DO PRODUTO',
                 style: TextStyle(
+                  fontFamily: 'Edutico',
+                  color: Color(0xFF385BD2),
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -112,12 +136,23 @@ class DetalheProduto extends StatelessWidget {
           
               Text(
                 produtos.descri,
-                style: const TextStyle(fontSize: 16, height: 1.5),
+                style: const TextStyle(
+                  fontSize: 16, 
+                  height: 1.5,
+                  fontFamily: 'Glacial Indifference'),
+                
               ),
+                    ]
+                    ),
             ],
           ),
         ),
       ),
+    ]
+    ),
+        
+    ),
+    ), 
     );
   }
 }
