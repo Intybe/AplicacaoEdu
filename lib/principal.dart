@@ -13,11 +13,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Produto> produtos = [
-    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'lakjhu', faixaEtaria: 1, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Em estoque'),
-    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 30,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'klhjhkjb', faixaEtaria: 3, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Indisponível'),
-    Produto(nome: 'evelyn', preco: 'R\$ 40,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'jhiuohnh', faixaEtaria: 6, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Em estoque'),
-    Produto(nome: 'leticia', preco: 'R\$ 50,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'hihoihnjn', faixaEtaria: 10, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Em estoque'),
-    Produto(nome: 'leticia', preco: 'R\$ 50,00', img1: 'assets/prod1.jpeg', img2: 'assets/prod1.jpeg', img3: 'assets/prod1.jpeg', descri: 'hihoihnjn', faixaEtaria: 12, precoAnt: 'R\$ 60,00', precoParc: '10x de R\$ 60,00', estoque: 'Em estoque'),
+    Produto(nome: 'Encaixe de Formas Geométricas', preco: 'R\$ 89,02', img1: 'assets/prod1.jpeg', img2: 'assets/prod1_2.jpg', img3: 'assets/prod1_3.jpg', descri: 'lakjhu', faixaEtaria: 1, precoAnt: 'R\$ 101,17', precoParc: '10x de R\$ 15,00', estoque: 'Em estoque'),
+    Produto(nome: 'Blocos de Encaixe', preco: 'R\$ 102,60', img1: 'assets/prod2_1.jpg', img2: 'assets/prod2_2.jpg', img3: 'assets/prod2_3.jpg', descri: 'klhjhkjb', faixaEtaria: 3, precoAnt: 'R\$ 130,99', precoParc: '10x de R\$ 12,99', estoque: 'Indisponível'),
+    Produto(nome: 'Pequeno Construtor Brinquedo Em Mdf', preco: 'R\$ 47,65', img1: 'assets/prod3_1.jpg', img2: 'assets/prod3_2.jpg', img3: 'assets/prod3_3.jpg', descri: 'jhiuohnh', faixaEtaria: 6, precoAnt: 'R\$ 52,63', precoParc: '10x de R\$ 7,69', estoque: 'Em estoque'),
+    Produto(nome: 'Xilofone Musical Infantil Montessori', preco: 'R\$ 129,90', img1: 'assets/prod4_1.jpg', img2: 'assets/prod4_2.jpg', img3: 'assets/prod4_3.jpg', descri: 'hihoihnjn', faixaEtaria: 10, precoAnt: 'R\$ 199,90', precoParc: '12x de R\$ 13,99', estoque: 'Em estoque'),
+    Produto(nome: 'Cubo Mágico Cúbico Sem Adesivo', preco: 'R\$ 137,00', img1: 'assets/prod5_1.jpg', img2: 'assets/prod5_2.jpg', img3: 'assets/prod5_3.jpg', descri: 'hihoihnjn', faixaEtaria: 12, precoAnt: 'R\$ 160,00', precoParc: '12x de R\$ 13,32', estoque: 'Em estoque'),
+    Produto(nome: 'Quebra-Cabeça Animais Cubos 12pc', preco: 'R\$ 153,90', img1: 'assets/prod6_1.jpg', img2: 'assets/prod6_2.jpg', img3: 'assets/prod6_3.jpg', descri: 'hihoihnjn', faixaEtaria: 12, precoAnt: 'R\$ 175,90', precoParc: '12x de R\$ 15,39', estoque: 'Em estoque'),
+    Produto(nome: 'Quebra Cabeça Animais Em Quadro', preco: 'R\$ 209,00', img1: 'assets/prod7_1.jpg', img2: 'assets/prod7_2.jpg', img3: 'assets/prod7_3.jpg', descri: 'hihoihnjn', faixaEtaria: 12, precoAnt: 'R\$ 259,00', precoParc: '12x de R\$ 21,18', estoque: 'Em estoque'),
   ];
 
   // Variável para armazenar a faixa etária selecionada
@@ -28,7 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
     if (faixaEtariaSelecionada == null) {
       return produtos; // Se nenhuma faixa etária foi selecionada, exibe todos os produtos
     }
-    return produtos.where((produto) => produto.faixaEtaria <= faixaEtariaSelecionada!).toList();
+    //incluir produtos com faixa etária maior ou igual à selecionada
+    return produtos.where((produto) => produto.faixaEtaria >= faixaEtariaSelecionada!).toList();
   }
 
   @override
@@ -79,15 +82,14 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.grey,
             ),
 
-            // Espaço entre a barra de pesquisa e a linha
             const SizedBox(height: 20),
 
             // Filtros por idade
             SingleChildScrollView(
-              scrollDirection: Axis.horizontal, // Rolagem horizontal
+              scrollDirection: Axis.horizontal, // Corrigido para rolagem horizontal
               child: Row(
                 children: [
-                  IdadeFiltroButton(label: 'Até 2 anos', onPressed: () {
+                  IdadeFiltroButton(label: '2+ anos', onPressed: () {
                     setState(() {
                       faixaEtariaSelecionada = 2;
                     });

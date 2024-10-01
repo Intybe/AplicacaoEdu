@@ -92,9 +92,11 @@ class DetalheProduto extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        produtos.estoque,
-                        style: const TextStyle(
-                          color: Colors.green,
+                        produtos.estoque, // Exibe o status de estoque
+                        style: TextStyle(
+                          color: produtos.estoque == 'Indisponível'
+                              ? Colors.red 
+                              : Colors.green, 
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                           fontFamily: 'Glacial Indifference'
