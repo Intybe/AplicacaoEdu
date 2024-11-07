@@ -34,12 +34,12 @@ class card_produto extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                   child: Image.asset(
                     produto.img1,
-                    height: 120, // Ajusta a altura da imagem
+                    height: 150, // Ajusta a altura da imagem
                     width: double.infinity, // Ajusta a largura para preencher o card
                     fit: BoxFit.cover, // Ajusta a imagem para cobrir o espaço
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 10),
                 Text(
                   produto.nome,
                   style: const TextStyle(
