@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // Espera 3 segundos antes de navegar para a tela principal
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 7), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => HomeScreen(),
       ));
