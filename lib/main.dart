@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:flutter_application_edutico/principal.dart'; // Para usar Future.delayed
+import 'package:flutter_application_edutico/principal.dart'; 
 
 void main() {
   runApp(const MyApp());
@@ -41,17 +41,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFEF8), // Cor de fundo da splash screen
+      backgroundColor: const Color(0xFFFFFEF8), 
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/logoEdu.png'), // Logo da splash screen
-            const SizedBox(height: 20), // Espaçamento entre o logo e o indicador
+            Image.asset('assets/logoEdu.png'), 
+            const SizedBox(height: 20), 
             SizedBox(
               width: 90,
               child: LinearProgressIndicator(
-                valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue), // Cor do indicador
+                valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue), 
                 backgroundColor: Colors.grey[300], // Cor de fundo da barra
               ),
             ),

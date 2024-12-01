@@ -11,19 +11,19 @@ Widget build(BuildContext context) {
     onPressed: () {},
     style: ElevatedButton.styleFrom(
       shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(100), // Arredondamento das bordas
-          ), // Bordas arredondadas
-      backgroundColor: const Color.fromARGB(255, 255, 189, 191), // Fundo vermelho claro
+            borderRadius: BorderRadius.circular(100), 
+          ), 
+      backgroundColor: const Color.fromARGB(255, 255, 189, 191), 
       side: const BorderSide(
-        color: Color(0xFFE31B21), // Contorno vermelho escuro
-        width: 1.0, // Espessura do contorno
+        color: Color(0xFFE31B21), 
+        width: 1.0, 
       ),
-      foregroundColor: const Color(0xFFE31B21), // Cor do texto (vermelho escuro)
+      foregroundColor: const Color(0xFFE31B21), 
     ),
     child: Text(
       label,
       style: const TextStyle(
-        fontWeight: FontWeight.bold, // Opcional, para destacar o texto
+        fontWeight: FontWeight.bold, 
       ),
     ),
   );

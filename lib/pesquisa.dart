@@ -111,7 +111,7 @@ class _PesquisaState extends State<Pesquisa> {
                             child: Image.asset(
                               'assets/catavento.png',
                               fit: BoxFit.cover,
-                              width: MediaQuery.of(context).size.width, // Largura da tela
+                              width: MediaQuery.of(context).size.width, 
                             ),
                           ),
                       )
